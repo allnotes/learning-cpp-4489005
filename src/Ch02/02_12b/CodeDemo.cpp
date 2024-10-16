@@ -5,15 +5,20 @@
 #include <iostream>
 #include <cstdint>
 
-enum cow_purpose {dairy, meat, hide, pet};
+enum class cow_purpose {dairy, meat, hide, pet};//THE NAMES IN THIS ENUM DON'T HAVE A //SCOPE - THEY WORK LIKE GLOBAL VARIABLES
+enum class grocery_section {canned, frozen, meat, laundry, dairy, bakery};
 
-int main(){
-    int a;
+auto main() -> int{
+//int main(){
+    int meat = 8;//SINCE MEAT IS A LOCAL VARIABLE, IT IS USED IN THIS SCOPE
+    //int a;
+    cow_purpose a;
 
-    a = meat;
+    //a = (int)cow_purpose::dairy;
+    a = cow_purpose::meat;
 
-    std::cout << "a = " << a << std::endl;
+    std::cout << "a = " << (int)a << std::endl;
 
     std::cout << std::endl << std::endl;
-    return (0);
+    //return (0);
 }
