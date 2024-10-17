@@ -6,11 +6,15 @@
 #include <string>
 #include "cow.h"
 
-int main(){
-    cow my_cow("Hildy", 7, cow_purpose::pet);
-    std::cout << my_cow.get_name() << " is a type-" << (int) my_cow.get_purpose() << " cow." << std::endl;
-    std::cout << my_cow.get_name() << " is " << my_cow.get_age() << " years old." << std::endl;
+auto main() -> int{
+//int main(){
+    cow *my_cow;
+    //cow my_cow("Gertie", 3, cow_purpose::hide);
+    my_cow = new cow("Gertie", 3, cow_purpose::hide);
+    std::cout << my_cow->get_name() << " is a type-" << (int) my_cow->get_purpose() << " cow." << std::endl;
+    std::cout << my_cow->get_name() << " is " << my_cow->get_age() << " years old." << std::endl;
+    delete my_cow;
     
     std::cout << std::endl << std::endl;
-    return (0);
+    //return (0);
 }
