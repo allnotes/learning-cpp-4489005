@@ -5,8 +5,17 @@
 #include <iostream>
 #include <string>
 
-int main(){
+auto main() -> int{
+//int main(){
+    int a = 37;
+    int *ptr;
+    ptr = &a;
 
+    std::cout << "                    The content of a is " << a << std::endl;
+    std::cout << "             ptr is pointing to address " << ptr << std::endl;
+    std::cout << "                    The address of a is " << &a << std::endl;
+    std::cout << "Where (address) ptr is pointing we have " << *ptr << std::endl;
+    std::cout << "                  The address of ptr is " << &ptr << std::endl;
     std::cout << std::endl << std::endl;
-    return (0);
+    //return (0);
 }
