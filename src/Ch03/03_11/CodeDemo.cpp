@@ -5,7 +5,8 @@
 #include <iostream>
 #include "records.h"
 
-int main(){
+auto main() -> int{
+//int main(){
     Student my_student(1, "Hilda Jones");
     Course my_course(7, "Physics 101", 4);
     Grade my_grade(1, 7, 'B');
@@ -16,5 +17,5 @@ int main(){
     std::cout << "Grade: " << my_grade.get_grade() << std::endl;
     
     std::cout << std::endl << std::endl;
-    return (0);
+    //return (0);
 }
