@@ -27,9 +27,10 @@ auto main() -> int{
 
     // Calculate the GPA for the selected student.
     // Write your code here
+    int cr = 0;
     for (int i = 0;i < grades.size();i++)
         if (grades[i].Grade::get_student_id() == id){
-            int cr = courses[grades[i].Grade::get_course_id()].Course::get_credits();
+            cr += courses[grades[i].Grade::get_course_id() - 1].Course::get_credits();
             if (grades[i].Grade::get_grade() == 'A')
                 GPA = 4.0;
             if (grades[i].Grade::get_grade() == 'B')
@@ -40,11 +41,13 @@ auto main() -> int{
                 GPA = 1.0;
             if (grades[i].Grade::get_grade() == 'F')
                 GPA = 0.0;
-            GPA += GPA * cr;
+            GPA += GPA * courses[grades[i].Grade::get_course_id() - 1].Course::get_credits();
+            //GPA += GPA * cr;
             //GPA+= GPA * (courses[grades[i].Grade::get_course_id() - 1].Course::get_credits());
         }
             
-    GPA = GPA/grades.size();
+    //GPA = GPA/grades.size();
+    GPA = GPA/cr;
 
     //while(grades[].Grade::get_student_id() == id){
     //}
