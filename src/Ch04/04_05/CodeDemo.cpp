@@ -29,17 +29,19 @@ auto main() -> int{
     // Write your code here
     for (int i = 0;i < grades.size();i++)
         if (grades[i].Grade::get_student_id() == id){
+            int cr = courses[grades[i].Grade::get_course_id()].Course::get_credits();
             if (grades[i].Grade::get_grade() == 'A')
-                GPA = 4;
+                GPA = 4.0;
             if (grades[i].Grade::get_grade() == 'B')
-                GPA = 3;
+                GPA = 3.0;
             if (grades[i].Grade::get_grade() == 'C')
-                GPA = 2;
+                GPA = 2.0;
             if (grades[i].Grade::get_grade() == 'D')
-                GPA = 1;
+                GPA = 1.0;
             if (grades[i].Grade::get_grade() == 'F')
-                GPA = 1;
-            GPA+= GPA * (courses[grades[i].Grade::get_course_id()].Course::get_credits());
+                GPA = 0.0;
+            GPA += GPA * cr;
+            //GPA+= GPA * (courses[grades[i].Grade::get_course_id() - 1].Course::get_credits());
         }
             
     GPA = GPA/grades.size();
@@ -48,7 +50,7 @@ auto main() -> int{
     //}
 
     std::string student_str;
-    student_str = students[id].get_name();
+    student_str = students[id - 1].get_name();
     //student_str = students[0].get_name(); // Change this to the selected student's name
 
     std::cout << "The GPA for " << student_str << " is " << GPA << std::endl;
