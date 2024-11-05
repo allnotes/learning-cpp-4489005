@@ -94,4 +94,7 @@ float StudentRecords::get_GPA(int sid) const{
             points += get_num_grade(grd.get_grade()) * current_credits;
         }
     return (points / credits);
+
+int StudentRecords::get_report_card(int id) const{
+
 }
