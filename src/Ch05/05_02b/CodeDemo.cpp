@@ -4,13 +4,32 @@
 
 #include <iostream>
 
-int main(){
+//int main()
+//TAKES ARGUMENTS BY VALUE
+int square(int x){
+    x = x * x;
+    return x;
+}
+//TAKES ARGUMENTS BY ADDRESS
+void swap(int *x, int *y){
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+//TAKES ARGUMENTS BY REFERENCE
+void swap(int& x, int& y){
+    int temp = x;
+    x = y;
+    y = temp;
+}
+
+auto main() -> int {
     int a = 9, b;
-    // TODO: square
+    b = square(a);// TODO: square
     std::cout << "a = " << a << ", b = " << b << std::endl;
-    // TODO: swap
+    swap(&a,&b);// TODO: swap
     std::cout << "a = " << a << ", b = " << b << std::endl;
-    // TODO: swap
+    swap(a,b);// TODO: swap
     std::cout << "a = " << a << ", b = " << b << std::endl;
     
     std::cout << std::endl << std::endl;

@@ -95,6 +95,17 @@ float StudentRecords::get_GPA(int sid) const{
         }
     return (points / credits);
 
-int StudentRecords::get_report_card(int id) const{
+void StudentRecords::get_report_card(int sid) const{
+    student_id = sid;
+}
+int Grade::get_student_id() const{
+    return student_id;
+}
+int Grade::get_course_id() const{
+    return course_id;
+}
+char Grade::get_grade() const{
+    return grade;
+}
 
 }
