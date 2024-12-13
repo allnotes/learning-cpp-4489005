@@ -8,7 +8,7 @@
 
 void initialize(StudentRecords&);
 
-int main(){
+auto main() -> int{
     int id;
     StudentRecords SR;
     
@@ -38,4 +38,7 @@ void initialize(StudentRecords& srec){
     srec.add_grade(2, 1, 'A'); 
     srec.add_grade(2, 2, 'A');
     srec.add_grade(2, 4, 'B');
+
+    srec.get_report_card(1);
+    srec.get_report_card(2);
 }
