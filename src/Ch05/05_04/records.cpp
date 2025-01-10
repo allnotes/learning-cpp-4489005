@@ -26,7 +26,6 @@ int Course::get_credits() const{
     return credits;
 }
 
-
 Grade::Grade(int sid, int cid, char grd){
     student_id = sid;
     course_id = cid;
@@ -52,6 +51,13 @@ void StudentRecords::add_course(int cid, std::string cname, unsigned char ccredi
 
 void StudentRecords::add_grade(int sid, int cid, char grade){
     grades.push_back(Grade(sid, cid, grade));
+}
+
+void StudentRecords::get_report_card(int sid) const{
+    std::cout << "Student ID: " << students[] << endl;
+    std::cout << << "Course ID: " << courses[] << endl;
+    StudentRecords::get_GPA(sid);
+
 }
 
 float StudentRecords::get_num_grade(char letter) const{
@@ -95,9 +101,6 @@ float StudentRecords::get_GPA(int sid) const{
         }
     return (points / credits);
 
-void StudentRecords::get_report_card(int sid) const{
-    student_id = sid;
-}
 int Grade::get_student_id() const{
     return student_id;
 }
