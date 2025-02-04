@@ -1,4 +1,5 @@
 #include "records.h"
+#include <iostream>
 
 Student::Student(int the_id, std::string the_name){
     id = the_id;
@@ -53,11 +54,23 @@ void StudentRecords::add_grade(int sid, int cid, char grade){
     grades.push_back(Grade(sid, cid, grade));
 }
 
-void StudentRecords::get_report_card(int sid) const{
-    std::cout << "Student ID: " << students[] << endl;
-    std::cout << << "Course ID: " << courses[] << endl;
-    StudentRecords::get_GPA(sid);
+std::string StudentRecords::get_course_name(int cid) const{
+    int j =0;
+    while (j < courses.size() && courses[j].get.id() != cid)
+    j++;
+    return courses[j].get_name();
+}
 
+void StudentRecords::report_card(int sid) {
+    float points = 0.0f, credits = 0.0f;
+    std::cout << std::endl << "Report Card for: " << get_student_name(sid) << std::endl;
+    for (Grade& grd:grades)
+        if grd.get_student_id() == sid){
+            std::cout << << get_course_name(grd.get_course_id()) << ": " << grd.get_grade() << std::endl;
+            unsigned char current_credits = get.current_credits(grd.get_course_id());
+            credits += current_credits;
+            points += get.num_grade(grd.get_grade()) * current_credits;
+    std::cout << "GPA: " << (points/credits) << std::endl;
 }
 
 float StudentRecords::get_num_grade(char letter) const{
@@ -90,7 +103,7 @@ unsigned char StudentRecords::get_course_credits(int cid) const{
         j++;
     return courses[j].get_credits();
 }
-
+/*
 float StudentRecords::get_GPA(int sid) const{
     float points = 0.0f, credits = 0.0f;
     for (const Grade& grd : grades)
@@ -100,7 +113,7 @@ float StudentRecords::get_GPA(int sid) const{
             points += get_num_grade(grd.get_grade()) * current_credits;
         }
     return (points / credits);
-
+*/
 int Grade::get_student_id() const{
     return student_id;
 }
